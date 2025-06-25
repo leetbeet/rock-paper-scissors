@@ -34,5 +34,25 @@ function playRound(humanChoice, computerChoice) {
     }
 }
 
+function playGame() {
+    for (let i = 0; i < 5; i++) {
+        let humanSelection = getHumanChoice();
+        let computerSelection = getComputerChoice();
+
+        playRound(humanSelection, computerSelection);
+    }
+
+    if (humanScore > computerScore) {
+        console.log(`You win the game with the score being ${humanScore}-${computerScore}`)
+    } else if (humanScore < computerScore) {
+        console.log(`You lose the game with the score being ${humanScore}-${computerScore}`)
+    } else {
+        console.log(`You draw the game with the score being ${humanScore}-${computerScore}`)
+    }
+}
+
+
 let humanScore = 0;
 let computerScore = 0;
+
+playGame();
