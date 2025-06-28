@@ -10,9 +10,33 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice() {
-    let choice = prompt("Enter 'rock', 'paper' or 'scissors'");
-    return choice;
+let humanScore = 0;
+let computerScore = 0;
+
+function playRound(humanChoice, computerChoice) {
+    if (
+        (humanChoice === "rock" && computerChoice === "scissors") ||
+        (humanChoice === "paper" && computerChoice === "rock") ||
+        (humanChoice === "scissors" && computerChoice === "paper")
+    ) {
+        ++humanScore;
+        div.textContent = `You win, ${humanChoice} beats ${computerChoice}, the score is ${computerScore}-${humanScore} your way`;
+    } else if (humanChoice === computerChoice) {
+        div.textContent = `Draw, the score is ${computerScore}-${humanScore} your way`;             
+    } else {
+        ++computerScore;
+        div.textContent = `You lose, ${computerChoice} beats ${humanChoice}, the score is ${computerScore}-${humanScore} your way`;
+    }
+
+    if (humanScore === 5) {
+        div.textContent = "You win the game!";
+        humanScore = 0;
+        computerScore = 0;
+    } else if (computerScore === 5) {
+        div.textContent = "You lose the game!";
+        humanScore = 0;
+        computerScore = 0;
+    }
 }
 
 const rock = document.createElement("button");
@@ -46,35 +70,3 @@ body.appendChild(buttons);
 
 const div = document.createElement("div");
 body.appendChild(div);
-
-function playRound(humanChoice, computerChoice) {
-    humanChoice = humanChoice.toLowerCase();
-    computerChoice = computerChoice.toLowerCase();
-
-    if (
-        (humanChoice === "rock" && computerChoice === "scissors") ||
-        (humanChoice === "paper" && computerChoice === "rock") ||
-        (humanChoice === "scissors" && computerChoice === "paper")
-    ) {
-        div.textContent = `You win, ${humanChoice} beats ${computerChoice}, the score is ${computerScore}-${humanScore} your way`;
-        humanScore++;
-    } else if (humanChoice === computerChoice) {
-        div.textContent = `Draw, the score is ${computerScore}-${humanScore} your way`;             
-    } else {
-        div.textContent = `You lose, ${computerChoice} beats ${humanChoice}, the score is ${computerScore}-${humanScore} your way`;
-        computerScore++;
-    }
-
-    if (humanScore === 5) {
-        div.textContent = "You win the game!";
-        humanScore = 0;
-        computerScore = 0;
-    } else if (computerScore === 5) {
-        div.textContent = "You lose the game!";
-        humanScore = 0;
-        computerScore = 0;
-    }
-}
-
-let humanScore = 0;
-let computerScore = 0;
