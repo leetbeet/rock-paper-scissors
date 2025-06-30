@@ -1,4 +1,15 @@
-# rock-paper-scissors
-This is a project that allows you to play a best of 9 game of rock paper scissors against the computer and declares the winner at the end.  
+# Rock Paper Scissors
+A browser-based Rock Paper Scissors game allowing players to compete against the computer.  
 
-A simple UI is used which was created using DOM manipulation.
+## Features
+- Interactive buttons for rock, paper, scissors  
+- Score tracking system  
+- Win/lose/draw feedback  
+
+## Built With
+- HTML5  
+- CSS3  
+- JavaScript (DOM manipulation, event handling)  
+
+## Live Demo
+https://leetbeet.github.io/rock-paper-scissors/
